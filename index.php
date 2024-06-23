@@ -29,7 +29,11 @@ if ($requests_mode === "POST") {
         $html = str_replace("http", "./import.php?url=http", $response);
         $html = str_replace('href="/', "href=\"./import.php?url=$base_url/", $html);
         $html = str_replace('src="/', "src=\"./import.php?url=$base_url/", $html);
-        $html = str_replace('action="/', "action=\"./import.php?url=$base_url", $html);
+        $html = str_replace('action="/', "action=\"./import.php?url=", $html);
+        $html = str_replace('action="//', "action=\"./import.php?url=https://", $html);
+        if (strpos($html, "<form ") && !strpos($html, "method=")){
+            $html = str_replace('<form ', '<form method="get" ', $html);
+        }
         //$html = str_replace('href="/', "href=\"/Proxy/import.php?url=$base_url/", $html);
         //$html = str_replace('href="./', "href=\"/Proxy/import.php?url=$currentURL/", $html);
         echo $html;
