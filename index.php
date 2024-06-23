@@ -27,8 +27,9 @@ if ($requests_mode === "POST") {
 
         // Begin requests
         $html = str_replace("http", "./import.php?url=http", $response);
-        $html = str_replace('href="./', "href=\"./import.php?url=$currentURL/", $html);
         $html = str_replace('href="/', "href=\"./import.php?url=$base_url/", $html);
+        //$html = str_replace('href="/', "href=\"/Proxy/import.php?url=$base_url/", $html);
+        //$html = str_replace('href="./', "href=\"/Proxy/import.php?url=$currentURL/", $html);
         echo $html;
     } else {
         consolePrint("This isn't url.");
