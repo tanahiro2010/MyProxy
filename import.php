@@ -16,7 +16,8 @@ if (strpos($response, "<html") !== false){
         <title>Redirecting...</title>
     </head>
     <body>
-        <form id=\"postForm\" action=\"/Proxy/\" method=\"post\">
+        <h1>Please waiting...</h1>
+        <form id=\"postForm\" action=\"/Proxy/\" method=\"post\" style'display: none'>
             <input name=\"url\" value=\"$file_url\">
         </form>
         <script type=\"text/javascript\">
